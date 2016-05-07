@@ -1,9 +1,10 @@
 source 'https://rubygems.org'
 
-gem 'activerecord'
 gem 'byebug'
-gem 'nokogiri'
-gem 'open_uri_redirections'
-gem 'redis'
+gem 'nokogiri', "~> 1.6.7.2"
+gem 'phantomjs'
+gem 'rake', "~> 10.4.2"
+gem 'redis', "~> 3.2"
 gem 'resque', "~> 1.22.0"
-gem 'resque-pool'
+gem 'rspec', "~> 3.4"
+gem "watir-webdriver"

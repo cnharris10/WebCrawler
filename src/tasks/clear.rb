@@ -1,3 +1,5 @@
+# Taken from --> https://gist.github.com/denmarkin/1228863
+
 namespace :resque do
   desc "Clear pending tasks"
   task :clear do

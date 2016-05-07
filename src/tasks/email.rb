@@ -1,20 +1,22 @@
-require_relative "../scraper/config"
-require_relative "../scraper/logger"
-require_relative "../scraper/page"
+require_relative "../crawler/config"
+require_relative "../crawler/logger"
+require_relative "../crawler/page"
 
-module Scraper
+module Crawler
   class Email
     @queue = :email
 
     def self.perform(html)
-      self.parse_emails(html)
+      self.parse(html)
     end
 
     # Add matching emails to Redis
-    def self.parse_emails(html)
+    def self.parse(html)
       return nil if html.nil?
-      html.scan(Scraper::EMAIL_REGEX) do |email|
-        REDIS_CLIENT.sadd(Scraper::Queues::EMAILS, email.downcase.strip)
+      emails = html.scan(Crawler::EMAIL_REGEX)
+      ::CrawlerLogger.info("########## Emails parsed: #{emails.count > 0 ? emails : 0} ##########")
+      emails.each do |email|
+        REDIS_CLIENT.sadd(Crawler::Queues::EMAILS, email.downcase.strip)
       end
     end 
 
