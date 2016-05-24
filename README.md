@@ -1,4 +1,4 @@
-# JChallenge Crawler
+# Web Crawler
 
 ## Introduction
 
