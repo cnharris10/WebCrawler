@@ -1,4 +1,4 @@
-# JChallenge Crawler
+# Crawler
 
 ## Introduction
 
@@ -68,7 +68,7 @@ Feel free to email me at cnharris@gmail.com with any issues and/or a detailed se
 
 	ruby find_email_addresses.rb <host>
 	
-	ex: ruby find_email_addresses.rb jana.com
+	ex: ruby find_email_addresses.rb cnn.com
 	
 
 ## Testing
@@ -138,7 +138,7 @@ Unit tests for each significant crawler operation.
 * Bolster email regex accuracy by taking into account common string delimiters (",',=,<space>). Current regex is prone to including urls with an unescaped '@' sign.
 * Incorporate a pool of delayed jobs to better reutilize a set amount of resources
 * Allow crawler to be run on multiple browsers.
-* Utilize Redis/Resque to run multiple crawlers at once (i.e. jana.com and mit.edu together)
+* Utilize Redis/Resque to run multiple crawlers at once (i.e. cnn.com and mit.edu together)
 
 ### Testing:
 * Incorporate E2E tests with static HTML sources to ensure that the crawler is finding all possible links/emails.  Unit testing on a small script should be mostly sufficient though.
